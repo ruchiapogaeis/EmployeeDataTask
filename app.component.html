@@ -1,0 +1,55 @@
+<h3 class="bg-primary p-1 text-white">Employee Data</h3>
+ 
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>City</th>
+            <th>Address 1</th>
+            <th>Address 2</th>
+            <th>Postal Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of persondata">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.phone| filterno }}</td>
+            <td>{{ item.city }}</td>
+            <td>{{ item.address_line1 }}</td>
+            <td>{{ item.address_line2 }}</td>
+            <td>{{ item.postal_code }}</td>
+        </tr>
+    </tbody>
+</table> 
+
+<h3 class="bg-primary p-1 text-white">Employee Filtered Data</h3>
+
+Enter City : <input type="text" id="userIdFirstWay" list="dynmicUserIds" value={{city1}} (change)="getpersondataBycity($event.target.value)" />
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>City</th>
+            <th>Address 1</th>
+            <th>Address 2</th>
+            <th>Postal Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item1 of getpersondataBycity(city1)">
+            <td>{{ item1.id }}</td>
+            <td>{{ item1.name }}</td>
+            <td>{{ item1.phone| filterno }}</td>
+            <td>{{ item1.city }}</td>
+            <td>{{ item1.address_line1 }}</td>
+            <td>{{ item1.address_line2 }}</td>
+            <td>{{ item1.postal_code }}</td>
+        </tr>
+    </tbody>
+</table> 
+
